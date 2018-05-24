@@ -1,0 +1,78 @@
+.app-component {
+	text-align: center;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 1rem;
+	max-width: 300px;
+	margin: 0 auto;
+}
+
+.app-component img {
+	max-width: 100%;
+	margin-bottom: 1rem;
+}
+
+h2 {
+	font-size: 1.2rem;
+	color: rgba(0,0,0,.5)
+}
+
+form input[type="text"] {
+	padding: .8rem;
+	border: 1px solid #aaa;
+	border-radius: 4px;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 300px;
+	outline-color: transparent;
+}
+
+form input[type="text"].error {
+	border-color: red;
+}
+
+label {
+	display: block;
+	padding-bottom: 1rem;
+}
+
+.autocomplete-list {
+	margin: 0 auto;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	max-width: 300px;
+	position: relative;
+	z-index: 1;
+}
+
+.autocomplete-list li {
+	list-style: none;
+	border: 1px solid #aaa;
+	padding: .8rem;
+	font-size: .8rem;
+	cursor: pointer;
+}
+
+.autocomplete-list li:hover,
+.autocomplete-list li.hover {
+	background-color: rgba(0, 0, 255,.3);
+}
+
+.autocomplete-list li:not(.last) {
+	border-bottom: none;
+}
+
+.autocomplete-list li b {
+	font-size: 1rem;
+}
+
+.selected-option-data {
+	position: relative;
+	z-index: 0;
+	margin: 2rem auto 1rem;
+}
+
+.errorMessage {
+	padding: 1rem 0;
+	color: rgba(50,0,0,.8);
+}

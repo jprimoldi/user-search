@@ -1,0 +1,38 @@
+<div class="app-component">
+  <div class="img-header">
+    <img src="/assets/endava-logo.png" alt="Logo Endava">
+  </div>
+  <ng-container *ngIf="!getUsersError">
+    <form>
+      <label for="search">Ingresa un nombre de usuario: </label>
+      <input type="text" name="search" id="search" tabindex="1"
+        autocomplete="off"
+        [(ngModel)]="search"
+        (keyup)="setAutocompleteList($event)"
+        [class.error]="userNoExist">
+      <ul class="autocomplete-list" *ngIf="users.length && showOptions">
+        <li *ngFor="let item of filteredUsers; let itemIndex = index; let last = last" 
+            (click)="selectOption(item)"
+            [class.hover]="itemHover === itemIndex"
+            [class.last]="last">
+          <b>{{item.username}}</b> - <em>{{item.first_name}} {{item.last_name}}</em>
+        </li>
+      </ul>
+      <div class="selected-option-data" *ngIf="selectedOptionData">
+        <h2>Usuario encontrado</h2>
+        <b>{{selectedOptionData.username}}</b> - 
+        <em>{{selectedOptionData.first_name}} {{selectedOptionData.last_name}}</em>
+      </div>
+    </form>
+  </ng-container>
+  <ng-container *ngIf="userNoExist">
+    <p class="errorMessage">
+      El usuario ingresado no existe
+    </p>
+  </ng-container>
+  <ng-container *ngIf="getUsersError">
+    <p class="errorMessage">
+      No hay usuarios guardados
+    </p>
+  </ng-container>
+</div>
